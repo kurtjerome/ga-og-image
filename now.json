@@ -1,0 +1,9 @@
+{
+    "version": 2,
+    "functions": {
+        "pages/api/**": {
+            "memory": 1024
+        }
+    },
+    "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
+}
