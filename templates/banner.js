@@ -2,22 +2,6 @@ import { readFileSync } from "fs"
 import path from "path"
 import getConfig from "next/config"
 
-const { serverRuntimeConfig } = getConfig()
-
-const InterRegular = readFileSync(
-    path.join(
-        serverRuntimeConfig.PROJECT_ROOT,
-        "./pages/api/fonts/Inter-Regular.woff2"
-    )
-).toString("base64")
-
-const InterBold = readFileSync(
-    path.join(
-        serverRuntimeConfig.PROJECT_ROOT,
-        "./pages/api/fonts/Inter-Bold.woff2"
-    )
-).toString("base64")
-
 export function getHTML({ h1, h2, brand, logo, bg }) {
     const css = getCSS({ bg })
     const body = getBody({ h1, h2, brand })
@@ -35,6 +19,17 @@ export function getHTML({ h1, h2, brand, logo, bg }) {
 }
 
 function getCSS({ bg }) {
+    const { serverRuntimeConfig } = getConfig()
+    const InterRegular = readFileSync(
+        path.join(
+            serverRuntimeConfig.PROJECT_ROOT,
+            "./fonts/Inter-Regular.woff2"
+        )
+    ).toString("base64")
+    const InterBold = readFileSync(
+        path.join(serverRuntimeConfig.PROJECT_ROOT, "./fonts/Inter-Bold.woff2")
+    ).toString("base64")
+
     return `
         @font-face {
             font-family: 'GA-Inter';
