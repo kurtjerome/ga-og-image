@@ -5,7 +5,11 @@ function PreviewImage() {
     const { url } = usePreview()
     const [loading, setLoading] = useState(false)
 
-    useEffect(() => setLoading(true), [url])
+    useEffect(() => {
+        if (!isCached(url)) {
+            setLoading(true)
+        }
+    }, [url])
 
     const onLoad = () => setLoading(false)
     const onError = () => setLoading(false)
@@ -25,6 +29,13 @@ function PreviewImage() {
             onError={onError}
         />
     )
+}
+
+function isCached(src) {
+    var image = new Image()
+    image.src = src
+
+    return image.complete
 }
 
 export default PreviewImage
