@@ -12,10 +12,12 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <h1>GoAbroad `og:image` Generator</h1>
+                <h1>GoAbroad og:image Generator</h1>
                 <PreviewContextProvider>
-                    <PreviewForm />
-                    <PreviewImage />
+                    <div className="preview-container">
+                        <PreviewForm />
+                        <PreviewImage />
+                    </div>
                 </PreviewContextProvider>
             </main>
         </div>

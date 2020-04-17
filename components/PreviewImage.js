@@ -20,14 +20,16 @@ function PreviewImage() {
     }
 
     return (
-        <img
-            width="600"
-            alt="Generated Image"
-            src={url}
-            style={style}
-            onLoad={onLoad}
-            onError={onError}
-        />
+        <div className="preview-image-container">
+            <img
+                width="600"
+                alt="Generated Image"
+                src={url}
+                style={style}
+                onLoad={onLoad}
+                onError={onError}
+            />
+        </div>
     )
 }
 
