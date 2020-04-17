@@ -5,13 +5,13 @@ import { usePreview } from "../contexts/PreviewContext"
 
 const BASE_URL = process.env.NOW_URL || `http://localhost:3000`
 
-console.log(process.env)
-
 function PreviewImage() {
     const { url } = usePreview()
     const [loading, setLoading] = useState(false)
+    const [copied, setCopied] = useState(false)
 
     useEffect(() => {
+        setCopied(false)
         if (!isCached(url)) {
             setLoading(true)
         }
@@ -22,12 +22,21 @@ function PreviewImage() {
 
     const style = {
         filter: loading ? "blur(5px)" : undefined,
-        opacity: loading ? 0.5 : 1,
+        opacity: loading ? 0.75 : 1,
+        pointerEvents: loading ? "none" : "all",
     }
 
     return (
         <div className="preview-image-container">
-            <p>Click image to copy image url.</p>
+            {copied ? (
+                <p className="animated pulse">
+                    <span className="check" /> Copied url to clipboard!
+                </p>
+            ) : loading ? (
+                <p>Loading...</p>
+            ) : (
+                <p>Click image to copy url</p>
+            )}
             <img
                 width="600"
                 alt="Generated Image"
@@ -38,6 +47,7 @@ function PreviewImage() {
                 onClick={(e) => {
                     e.preventDefault()
                     toClipboard(BASE_URL + url)
+                    setCopied(true)
                 }}
             />
         </div>

@@ -5,11 +5,17 @@ import getConfig from "next/config"
 const { serverRuntimeConfig } = getConfig()
 
 const InterRegular = readFileSync(
-    path.join(serverRuntimeConfig.PROJECT_ROOT, "./fonts/Inter-Regular.woff2")
+    path.join(
+        serverRuntimeConfig.PROJECT_ROOT,
+        "./pages/api/fonts/Inter-Regular.woff2"
+    )
 ).toString("base64")
 
 const InterBold = readFileSync(
-    path.join(serverRuntimeConfig.PROJECT_ROOT, "./fonts/Inter-Bold.woff2")
+    path.join(
+        serverRuntimeConfig.PROJECT_ROOT,
+        "./pages/api/fonts/Inter-Bold.woff2"
+    )
 ).toString("base64")
 
 export function getHTML({ h1, h2, brand, logo, bg }) {
