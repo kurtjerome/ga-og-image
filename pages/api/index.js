@@ -9,6 +9,12 @@ export default async function handler(req, res) {
         const parsedRequest = parseRequest(req)
         const html = getHTML(parsedRequest)
 
+        if (parsedRequest.debug === "1") {
+            res.send(html)
+
+            return
+        }
+
         const { width = 1200, height = 630 } = parsedRequest
         const file = await getScreenshot({ html, width, height, isDev })
 
