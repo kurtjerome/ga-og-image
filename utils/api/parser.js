@@ -3,7 +3,7 @@ import { parse } from "url"
 export function parseRequest(req) {
     const { query } = parse(req.url || "/", true)
 
-    const { h1, h2, brand, logo, bg, width, height } = query || {}
+    const { h1, h2, brand, logo, bg, width, height, debug } = query || {}
 
     return {
         h1,
@@ -11,6 +11,7 @@ export function parseRequest(req) {
         brand,
         logo,
         bg,
+        debug,
         width: width && parseInt(width),
         height: height && parseInt(height),
     }
