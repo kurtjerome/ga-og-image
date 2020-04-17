@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react"
+import { toClipboard } from "copee"
+
 import { usePreview } from "../contexts/PreviewContext"
+
+const BASE_URL = process.env.NOW_URL || `http://localhost:3000`
+
+console.log(process.env)
 
 function PreviewImage() {
     const { url } = usePreview()
@@ -21,6 +27,7 @@ function PreviewImage() {
 
     return (
         <div className="preview-image-container">
+            <p>Click image to copy image url.</p>
             <img
                 width="600"
                 alt="Generated Image"
@@ -28,6 +35,10 @@ function PreviewImage() {
                 style={style}
                 onLoad={onLoad}
                 onError={onError}
+                onClick={(e) => {
+                    e.preventDefault()
+                    toClipboard(BASE_URL + url)
+                }}
             />
         </div>
     )

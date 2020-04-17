@@ -6,16 +6,6 @@ function PreviewForm() {
     return (
         <div className="preview-form-container">
             <div className="form-field">
-                <label htmlFor="bg">Background Image</label>
-                <input
-                    type="text"
-                    id="bg"
-                    value={preview.bg}
-                    onChange={(e) => preview.setBg(e.target.value)}
-                    placeholder="Paste image url (e.g. http://image.com/...)"
-                />
-            </div>
-            <div className="form-field">
                 <label htmlFor="brand">Brand</label>
                 <input
                     type="text"
@@ -26,7 +16,7 @@ function PreviewForm() {
                 />
             </div>
             <div className="form-field">
-                <label htmlFor="h1">Heading 1</label>
+                <label htmlFor="h1">Heading</label>
                 <input
                     type="text"
                     id="h1"
@@ -36,13 +26,43 @@ function PreviewForm() {
                 />
             </div>
             <div className="form-field">
-                <label htmlFor="h2">Heading 2</label>
+                <label htmlFor="h2">Subheading</label>
                 <input
                     type="text"
                     id="h2"
                     value={preview.h2}
                     onChange={(e) => preview.setH2(e.target.value)}
                 />
+            </div>
+            <div className="form-field">
+                <label htmlFor="bg">Background</label>
+                <input
+                    type="text"
+                    id="bg"
+                    value={preview.bg}
+                    onChange={(e) => preview.setBg(e.target.value)}
+                    placeholder="Paste image url (e.g. http://image.com/...)"
+                />
+            </div>
+            <div className="form-field">
+                <label htmlFor="width">Dimensions</label>
+                <div className="dimensions">
+                    <input
+                        type="number"
+                        id="width"
+                        value={preview.width}
+                        onChange={(e) => preview.setWidth(e.target.value)}
+                        placeholder="1200"
+                    />
+                    <div className="by" />
+                    <input
+                        type="number"
+                        id="height"
+                        value={preview.height}
+                        onChange={(e) => preview.setHeight(e.target.value)}
+                        placeholder="630"
+                    />
+                </div>
             </div>
         </div>
     )

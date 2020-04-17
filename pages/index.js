@@ -8,11 +8,11 @@ export default function Home() {
     return (
         <div className="container">
             <Head>
-                <title>GoAbroad `og:image` Generator</title>
+                <title>GoAbroad Open Graph Image Service</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <h1>GoAbroad og:image Generator</h1>
+                <h1>GoAbroad Open Graph Image Service</h1>
                 <PreviewContextProvider>
                     <div className="preview-container">
                         <PreviewForm />

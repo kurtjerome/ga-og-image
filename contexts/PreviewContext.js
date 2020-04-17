@@ -18,10 +18,28 @@ const PreviewContextProvider = (props) => {
     const debouncedH1 = useDebounce(h1, 500)
     const debouncedH2 = useDebounce(h2, 500)
     const debouncedBrand = useDebounce(brand, 500)
+    const debouncedWidth = useDebounce(width, 500)
+    const debouncedHeight = useDebounce(height, 500)
 
     useEffect(() => {
-        setUrl(getUrl({ bg, h1, h2, brand }))
-    }, [debouncedBg, debouncedH1, debouncedH2, debouncedBrand])
+        setUrl(
+            getUrl({
+                bg: debouncedBg,
+                h1: debouncedH1,
+                h2: debouncedH2,
+                brand: debouncedBrand,
+                width: debouncedWidth,
+                height: debouncedHeight,
+            })
+        )
+    }, [
+        debouncedBg,
+        debouncedH1,
+        debouncedH2,
+        debouncedBrand,
+        debouncedWidth,
+        debouncedHeight,
+    ])
 
     const contextValue = {
         brand,
