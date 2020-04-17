@@ -1,0 +1,16 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "next.config.js",
+            "use": "@now/next"
+        },
+        {
+            "src": "pages/api/*.js",
+            "use": "@now/node",
+            "config": {
+                "includeFiles": ["fonts/**"]
+            }
+        }
+    ]
+}
