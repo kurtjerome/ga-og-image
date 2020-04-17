@@ -66,8 +66,11 @@ function getCSS({ bg }) {
         }
 
         .copy {
-            flex: 1;
-            padding-right: 100px;
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-right: 20px;
             text-shadow: 0 2px 3px #000;
         }
         
@@ -88,6 +91,8 @@ function getCSS({ bg }) {
         }
 
         .logo-container {
+            flex: 1;
+            text-align: end;
             align-self: flex-end;
         }
     `
